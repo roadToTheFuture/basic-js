@@ -1,30 +1,30 @@
 const CustomError = require("../extensions/custom-error");
 
+
 module.exports = function createDreamTeam(members) {
-	function checkArr(arr) {
-		if (typeof arr[0] === 'string') {
-			return true;
+	let result = "";
+
+	if (members) {
+		if (members[0]) {
+			members;
 		} else {
 			return false;
 		}
+	} else {
+		return false;
+	}
 
-	};
-
-	module.exports = function createDreamTeam(members) {
-		if (checkArr(members)) {
-			let x = members;
-			let result = "";
-
-
-			for (let i = 0; i < x.length; i++) {
-				if (typeof x[i] === 'string') {
-					result += (/[A-Za-z]/).exec(x[i].split('')).toString().trim().toUpperCase();
-				}
-			}
-			return result.split('').sort().join('');
-
-		} else {
-			return false;
+	for (let i = members.length - 1; i >= 0; i--) {
+		if (typeof members[i] != 'string') {
+			members.splice(i, 1);
 		}
-	};
+	}
+
+	for (let i = 0; i < members.length; i++) {
+		result += members[i].trim().split('')[0];
+	}
+
+	return result.toUpperCase().split('').sort().join('');
 };
+
+
