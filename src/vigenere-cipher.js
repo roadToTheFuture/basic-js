@@ -36,7 +36,7 @@ class VigenereCipheringMachine {
 		this.mode = mode;
 	}
 	encrypt(message, key) {
-		if (message === undefined || key === undefined) throw new CustomError('Not implemented');
+		if (message === undefined || key === undefined) return error;
 
 		const keyUC = key.toUpperCase();
 		const keyUCDried = keyUC.replace(/\s/g, '');
@@ -72,7 +72,7 @@ class VigenereCipheringMachine {
 
 	}
 	decrypt(encryptedMessage, key) {
-		if (encryptedMessage === undefined || key === undefined) throw new CustomError('Not implemented');
+		if (encryptedMessage === undefined || key === undefined) return error;
 
 		const keyUC = key.toUpperCase();
 		const keyUCDried = keyUC.replace(/\s/g, '');

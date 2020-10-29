@@ -15,7 +15,8 @@ const chainMaker = {
 	removeLink(position) {
 		if (typeof position != 'number' || !Number.isInteger(position) || position > this.result.length - 1 || position < 0) {
 			this.result = [];
-			throw new CustomError('Not implemented');
+			return error;
+
 		}
 		this.result.splice(position - 1, 1);
 		return this
